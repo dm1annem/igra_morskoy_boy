@@ -8,11 +8,13 @@ app_running = True
 size_canvas_x = 800
 size_canvas_y = 800
 
+
 def on_closing():
     global app_running
     if messagebox.askokcancel("Выход из игры", "Ты чё уже уходишь?"):
         app_running = False
         tk.destroy()
+
 
 tk.protocol("WM_DELETE_WINDOW", on_closing)
 tk.title("Игра Морско  бой")
