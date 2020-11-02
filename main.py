@@ -13,6 +13,7 @@ step_y = size_canvas_y // kletok_po_y
 size_canvas_x = step_x * kletok_po_x
 size_canvas_y = step_y * kletok_po_y
 
+menu_x = 250
 
 
 def on_closing():
@@ -26,7 +27,7 @@ tk.protocol("WM_DELETE_WINDOW", on_closing)
 tk.title("Игра Морско  бой")
 tk.resizable(0, 0)
 tk.wm_attributes("-topmost", 1)
-canvas = Canvas(tk, width=size_canvas_x, height=size_canvas_y, bd=0, highlightthickness=0)
+canvas = Canvas(tk, width=size_canvas_x + menu_x, height=size_canvas_y, bd=0, highlightthickness=0)
 canvas.create_rectangle(0, 0, size_canvas_y, size_canvas_y, fill="#fafaf1")
 canvas.pack()
 tk.update()
@@ -39,7 +40,21 @@ def draw_table():
     for i in range(0, kletok_po_x + 1):
         canvas.create_line(0, step_y * i, size_canvas_y, step_x * i)
 
+
 draw_table()
+
+def button_shou_enemy():
+    pass
+
+
+def button_begin_agein():
+    pass
+
+b0 = Button(tk, text="Показать корабли противника", command=button_shou_enemy)
+b0.place(x=size_canvas_x + 20, y=30)
+
+b1 = Button(tk, text="Начать заново", command=button_begin_agein)
+b1.place(x=size_canvas_x + 20, y=100)
 
 while app_running:
     if app_running:
