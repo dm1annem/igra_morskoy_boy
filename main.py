@@ -43,17 +43,19 @@ def draw_table():
 
 draw_table()
 
+
 def button_shou_enemy():
     pass
 
 
-def button_begin_agein():
+def button_begin_again():
     pass
+
 
 b0 = Button(tk, text="Показать корабли противника", command=button_shou_enemy)
 b0.place(x=size_canvas_x + 20, y=30)
 
-b1 = Button(tk, text="Начать заново", command=button_begin_agein)
+b1 = Button(tk, text="Начать заново", command=button_begin_again)
 b1.place(x=size_canvas_x + 20, y=100)
 
 while app_running:
