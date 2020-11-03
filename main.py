@@ -58,6 +58,17 @@ b0.place(x=size_canvas_x + 20, y=30)
 b1 = Button(tk, text="Начать заново", command=button_begin_again)
 b1.place(x=size_canvas_x + 20, y=100)
 
+
+def add_to_all(event):
+    _type = 0  # ЛКМ
+    if event.num == 3:
+        _type = 1  # ПКМ
+    print(_type)
+
+
+canvas.bind_all("<Button-1>", add_to_all)  # левая кнопка мыши
+canvas.bind_all("<Button-3>", add_to_all)  # правая кнопка мыши
+
 while app_running:
     if app_running:
         tk.update_idletasks()
