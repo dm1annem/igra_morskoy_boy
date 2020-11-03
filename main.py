@@ -63,7 +63,13 @@ def add_to_all(event):
     _type = 0  # ЛКМ
     if event.num == 3:
         _type = 1  # ПКМ
-    print(_type)
+    #print(_type)
+    mouse_x = canvas.winfo_pointerx() - canvas.winfo_rootx()
+    mouse_y = canvas.winfo_pointery() - canvas.winfo_rooty()
+    #print(mouse_x, mouse_y)
+    idp_x = mouse_x // step_x
+    idp_y = mouse_y // step_y
+    print(idp_x, idp_y, "_type", _type)
 
 
 canvas.bind_all("<Button-1>", add_to_all)  # левая кнопка мыши
