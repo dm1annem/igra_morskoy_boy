@@ -1,19 +1,27 @@
 from tkinter import *
 from tkinter import messagebox
 import time
+import random
+
 
 tk = Tk()
 app_running = True
 
 size_canvas_x = 800
 size_canvas_y = 800
-kletok_po_x = kletok_po_y = 7
+kletok_po_x = kletok_po_y = 10
 step_x = size_canvas_x // kletok_po_x
 step_y = size_canvas_y // kletok_po_y
 size_canvas_x = step_x * kletok_po_x
 size_canvas_y = step_y * kletok_po_y
-
 menu_x = 250
+ships = kletok_po_x // 2
+ship_len1 = kletok_po_x // 5  #корабли первого типа
+ship_len2 = kletok_po_x // 3  #корабли второго типа
+ship_len3 = kletok_po_x // 2  #корабли третьего типа
+enemy_ships = [[0 for i in range(kletok_po_x)] for i in range(kletok_po_y)]
+print(enemy_ships)
+
 
 
 def on_closing():
@@ -74,6 +82,17 @@ def add_to_all(event):
 
 canvas.bind_all("<Button-1>", add_to_all)  # левая кнопка мыши
 canvas.bind_all("<Button-3>", add_to_all)  # правая кнопка мыши
+
+
+def generate_enemy_ships():
+    global enemy_ships
+    ship_list = []
+    for i in range(0, ships):
+        ship_list.append(random.choice([ship_len1, ship_len2, ship_len3]))
+    print(ship_list)
+
+generate_enemy_ships()
+
 
 while app_running:
     if app_running:
